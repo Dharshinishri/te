@@ -1,0 +1,305 @@
+exp 1:
+
+num1=int(input("Enter the first number:-"))
+num2=int(input("Enter the second number:-"))
+while num2!=0:
+(num1,num2)=(num2,num1%num2)
+print("The GCD of the given two numbers are",num1)
+
+
+exp2
+
+num=int(input("Enter the number "))
+approx=(num/2)
+for i in range(10):
+result=0.5*(approx+(num/approx))
+approx=result
+print("The square root of",num,"=",approx)
+
+
+exp3
+
+def exponent(base, power):
+p=1
+if(power<0):
+base = 1/base
+power = -power
+for i in range(power):
+p = p * base
+return p
+else:
+for i in range(power):
+p = p * base
+return p
+base = int(input("Enter the base: "))
+power = int(input("Enter the power: "))
+res = exponent(base,power)
+print(res)
+
+exp4
+
+n=int(input("Enter the length of the array: "))
+list = []
+for i in range(n):
+l = int(input(f"Enter Element {i}: "))
+list.append(l)
+print("The array elements are: ")
+print(list)
+max = 0
+for i in range(n):
+for j in range(i,n):
+if(list[i]<list[j]):
+temp=list[i]
+list[i]=list[j]
+list[j]=temp
+print("Max 1 = ",list[0])
+print("Max 2 = ",list[1])
+print("Max 3 = ",list[2])
+
+
+exp5
+
+a)
+no_of_elements = int( input('Enter the size of list: '))
+array =[]
+print( 'Enter the elements of the list: ')
+for i in range(0,no_of_elements,1):
+element=int(input())
+array.append(element)
+s= int(input('Enter the search element: '))
+for i in range(0,no_of_elements,1):
+if s == array[i]:
+flag=1
+break
+if flag==1:
+print ('Element is found in:{}'.format(i+1))
+else:
+print('Element not Found')
+
+b)
+def binary_search(arr, low, high, x):
+if high >= low:
+mid = (high + low) // 2
+if arr[mid] == x:
+return mid
+elif arr[mid] > x:
+return binary_search(arr, low, mid - 1, x)
+else:
+return binary_search(arr, mid + 1, high, x)
+else:
+return -1
+arr = input("Enter the array elements separated by spaces: ").split()
+arr = [int(num) for num in arr]
+x = int(
+input("Enter the element to search for: "))
+result = binary_search(arr, 0, len(arr) - 1, x)
+if result != -1:
+print("Element is present at index", result)
+else:
+print("Element is not present in array")
+
+exp6
+a) and b)
+
+
+import sys
+def create_list():
+     no_of_elements = int(input('Enter the size of list'))
+     array =[]
+     print( 'Enter the elements of the list')
+     for i in range(0,no_of_elements,1):
+       element=input()
+       array.append(int(element))
+     return (array)
+
+list =create_list()
+for i in range(len(list)):
+  min_idx = i
+  for j in range(i+1, len(list)):
+    if list[min_idx] > list[j]:
+      min_idx = j
+list[i], list[min_idx] = list[min_idx], list[i]
+print ("Sorted array")
+for i in range(len(list)):
+   print(list[i])
+
+c)
+import sys
+def create_list():
+     no_of_elements = int(input('Enter the size of list'))
+     array =[]
+     print( 'Enter the elements of the list')
+     for i in range(0,no_of_elements,1):
+         element=input()
+         array.append(int(element))
+     return (array)
+def mergeSort(alist):
+    print("Splitting ",alist)
+    if len(alist)>1:
+       mid = len(alist)//2
+       lefthalf = alist[:mid]
+       righthalf = alist[mid:]
+       mergeSort(lefthalf)
+       mergeSort(righthalf)
+       i=0
+       j=0
+       k=0
+       while i < len(lefthalf) and j < len(righthalf):
+          if lefthalf[i] < righthalf[j]:
+             alist[k]=lefthalf[i]
+             i=i+1
+          else:
+             alist[k]=righthalf[j]
+             j=j+1
+             k=k+1
+       while i < len(lefthalf):
+           alist[k]=lefthalf[i]
+           i=i+1
+           k=k+1
+       while j < len(righthalf):
+           alist[k]=righthalf[j]
+           j=j+1
+           k=k+1
+    print("Merging ",alist)
+alist = create_list()
+mergeSort(alist)
+print(alist)
+
+exp7
+
+
+
+def read_matrix():
+    m = int(input("Enter Row size: "))
+    n = int(input("Enter Column Size: "))
+    a = []
+    for i in range(m):
+        row = input().split()
+        for j in range(n):
+            row[j] = int(row[j])
+        a.append(row)
+    return a
+
+def set_matrix(r, c):
+    arr = [[0] * c for _ in range(r)]
+    return arr
+
+def prod(arr1, arr2, arr3):
+    for i in range(len(arr1)):
+        for j in range(len(arr2[0])):
+            for k in range(len(arr2)):
+                arr3[i][j] += arr1[i][k] * arr2[k][j]
+    return arr3
+
+def main():
+    a = read_matrix()
+    b = read_matrix()
+    print(len(a))
+    print(len(b[0]))
+    c = set_matrix(len(a), len(b[0]))
+    d = prod(a, b, c)
+    for row in d:
+        print(row)
+
+if __name__ == "__main__":
+    main()
+
+
+
+exp8
+
+import sys
+program_name = sys.argv[0]
+list_1 = []
+for i in range(1, len(sys.argv)):
+arguments = sys.argv[i]
+list_1.append(arguments)
+print("word count:", len(sys.argv) - 1)
+print("Unsorted list")
+print(*list_1, sep="\n")
+list_1.sort()
+print("sorted list")
+print(*list_1, sep="\n")
+
+exp 9
+
+file = open("sample.txt", "r")
+frequent_word = ""
+frequency = 0
+words = []
+for line in file:
+line_word = line.lower().strip().split(" ")
+for w in line_word:
+words.append(w)
+for i in range(0, len(words)):
+count = 1
+for j in range(i + 1, len(words)):
+if words[i] == words[j]:
+count += 1
+if count > frequency:
+frequent_word = words[i]
+frequency = count
+print("Most repeated word: " + frequent_word)
+print("Frequency: " + str(frequency))
+file.close()
+
+exp 10
+
+a)
+
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((400, 300))
+clock = pygame.time.Clock()
+done = False
+while not done:
+for event in pygame.event.get():
+if event.type == pygame.QUIT:
+done = True
+screen.fill((0, 0, 0))
+pygame.draw.circle(screen, (255, 255, 255), [150, 95], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [135, 95], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [120, 95], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [105, 100], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [90, 110], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [85, 130], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [85, 150], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [90, 170], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [110, 185], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [140, 195], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [170, 195], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [200, 190], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [230, 180], 5, 3)
+pygame.draw.circle(screen, (255, 255, 255), [250, 160], 5, 3)
+pygame.draw.ellipse(screen, (255, 0, 0), [100, 100, 100, 70], 10)
+pygame.display.flip()
+clock.tick(30)
+pygame.quit()
+
+b)
+
+import pygame
+from pygame.locals import *
+pygame.init()
+screen = pygame.display.set_mode((400, 300))
+done = False
+while not done:
+for event in pygame.event.get():
+if event.type == pygame.QUIT:
+done = True
+pygame.draw.circle(screen, (255,255,255), [100, 80], 10, 0)
+pygame.draw.circle(screen, (0,0,0), [100, 80], 10, 0)
+pygame.draw.circle(screen, (255,255,255), [150, 95], 10, 0)
+pygame.draw.circle(screen, (0,0,0), [150, 95], 10, 0)
+pygame.draw.circle(screen, (255,255,255), [200, 130], 10, 0)
+pygame.draw.circle(screen, (0,0,0), [200, 130], 10, 0)
+pygame.draw.circle(screen, (255,255,255), [250, 150], 10, 0)
+pygame.display.update()
+pygame.quit()
+
+
+
+
+
+
+
